@@ -20,3 +20,13 @@ Quiet down and log fewer things.
 
 `<filename>`  
 Specifies a JSON file from which to read the secrets.  Defaults to `secrets.json`.
+
+
+### getSecrets.sh
+```
+getSecrets.sh [--path | -p <value>]
+```
+
+#### Options
+`--path` or `-p`  
+Specify a path to be used as a prefix for fetched parameters. Defaults to `/`.
