@@ -13,4 +13,5 @@ done
 path=$(echo /${path:-$(uuidgen)}/ | tr -s '/' )
 secrets_filename=${secrets_filename:-'secrets.json'}
 
-jq -r '.' < $secrets_filename
+paths_to_leaves=( $(jq -r 'paths(scalars) | map(strings, numbers|tostring) | join(".")' $secrets_filename) )
+leaves=( $(jq -r 'getpath(paths(scalars))' $secrets_filename) )
