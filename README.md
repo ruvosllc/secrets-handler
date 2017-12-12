@@ -4,6 +4,7 @@
 
 
 ### putSecrets.sh
+Ingest a local JSON file and store it as individual parameters in AWS SSM.
 ```
 putSecrets.sh [--path | -p <value>] [--overwrite | -o] [--quiet | -q] <filename>
 ```
@@ -22,7 +23,13 @@ Quiet down and log fewer things.
 Specifies a JSON file from which to read the secrets.  Defaults to `secrets.json`.
 
 
+#### Example
+```
+putSecrets.sh --path /awesome/project secrets.json
+```
+
 ### getSecrets.sh
+Fetch a collection of secrets from AWS SSM by path and write them to standard output as a single JSON object.
 ```
 getSecrets.sh [--path | -p <value>]
 ```
@@ -30,3 +37,8 @@ getSecrets.sh [--path | -p <value>]
 #### Options
 `--path` or `-p`  
 Specify a path to be used as a prefix for fetched parameters. Defaults to `/`.
+
+#### Example
+```
+getSecrets.sh --path /awesome/project
+```
