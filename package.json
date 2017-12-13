@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git@gitlab.ubermonitoring.com:uberops/param-handler.git"
   },
+  "publishConfig": {
+    "registry": "https://nexus.ubermonitoring.com/repository/npm-hosted/"
+  },
   "author": "paul.anderson@uberops.com",
   "devDependencies": {
     "ava": "^0.24.0",
