@@ -1,0 +1,11 @@
+image: node:carbon
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - npm set progress=false
+    - npm install
+    - npm test
