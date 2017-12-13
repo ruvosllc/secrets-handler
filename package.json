@@ -1,0 +1,19 @@
+{
+  "name": "param-handler",
+  "version": "0.0.1",
+  "description": "Store and retrieve parameters securely via AWS SSM.",
+  "main": "index.js",
+  "scripts": {
+    "audit": "nsp check",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.ubermonitoring.com:uberops/param-handler.git"
+  },
+  "author": "paul.anderson@uberops.com",
+  "devDependencies": {
+    "nsp": "^3.1.0",
+    "standard": "^10.0.3"
+  }
+}
