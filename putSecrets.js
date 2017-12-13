@@ -1,1 +1,5 @@
-#! /usr/bin/env node
+const cleanPath = require('./lib/cleanPath')
+
+module.exports = ({ path, overwrite, secrets }) => {
+  path = cleanPath(path)
+}

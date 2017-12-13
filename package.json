@@ -6,7 +6,7 @@
   "scripts": {
     "audit": "nsp check",
     "lint": "standard",
-    "test": "npm run audit && npm run lint"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,12 @@
   },
   "author": "paul.anderson@uberops.com",
   "devDependencies": {
+    "ava": "^0.24.0",
     "nsp": "^3.1.0",
     "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.169.0",
+    "uuid": "^3.1.0"
   }
 }
