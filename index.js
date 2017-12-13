@@ -1,5 +1,5 @@
-const getSecrets = require('./getSecrets')
-const putSecrets = require('./putSecrets')
+const getSecrets = require('./lib/getSecrets')
+const putSecrets = require('./lib/putSecrets')
 
 module.exports = {
   getSecrets,
