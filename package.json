@@ -15,6 +15,10 @@
   "publishConfig": {
     "registry": "https://nexus.ubermonitoring.com/repository/npm-hosted/"
   },
+  "bin": {
+    "putsecrets": "./bin/putSecrets.sh",
+    "getsecrets": "./bin/getSecrets.sh"
+  },
   "author": "paul.anderson@uberops.com",
   "devDependencies": {
     "ava": "^0.24.0",
