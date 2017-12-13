@@ -1,6 +1,6 @@
 {
   "name": "param-handler",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Store and retrieve parameters securely via AWS SSM.",
   "main": "index.js",
   "scripts": {
