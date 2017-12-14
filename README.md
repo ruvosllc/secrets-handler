@@ -1,15 +1,15 @@
-# param-handler
+# secrets-handler
 
-> Store and retrieve parameters securely via AWS SSM.
+> Store and retrieve secrets securely via AWS SSM.
 
 ## Installation
-`npm install` or `git clone`
+`npm install secrets-handler`
 
 
 ## putSecrets.js
 Ingest a `secrets` object and store it as individual parameters in AWS SSM. Returns a promise that resolves to the stored parameters.
 ```
-const putSecrets = require('param-handler').putSecrets
+const putSecrets = require('secrets-handler').putSecrets
 
 putSecrets({
   secrets: { some: 'secrets' },
@@ -52,7 +52,7 @@ An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest
 ## getSecrets.js
 Fetch parameters from AWS SSM and reconstruct them as a secrets object.
 ```
-const getSecrets = require('param-handler').getSecrets
+const getSecrets = require('secrets-handler').getSecrets
 
 getSecrets({
   path: '/awesome/project',

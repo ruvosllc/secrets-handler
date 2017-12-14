@@ -1,19 +1,16 @@
 {
-  "name": "param-handler",
+  "name": "secrets-handler",
   "version": "0.0.3",
-  "description": "Store and retrieve parameters securely via AWS SSM.",
+  "description": "Store and retrieve secrets securely via AWS SSM.",
   "main": "index.js",
   "scripts": {
     "audit": "nsp check",
     "lint": "standard",
-    "test": "ava"
+    "test": "npm run audit && npm run lint && ava"
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.ubermonitoring.com:uberops/param-handler.git"
-  },
-  "publishConfig": {
-    "registry": "https://nexus.ubermonitoring.com/repository/npm-hosted/"
+    "url": "git@github.com:uberops/secrets-handler.git"
   },
   "bin": {
     "putsecrets": "./bin/putSecrets.sh",
