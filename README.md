@@ -1,6 +1,6 @@
 # secrets-handler
 
-> Store and retrieve secrets securely via AWS SSM.
+> Store and retrieve JSON secrets securely via AWS SSM.
 
 ## Installation
 `npm install secrets-handler`
