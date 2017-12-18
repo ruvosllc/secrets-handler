@@ -2,6 +2,8 @@
 
 > Store and retrieve JSON secrets securely via AWS SSM.
 
+[![Build Status](https://travis-ci.org/uberops/secrets-handler.svg?branch=master)](https://travis-ci.org/uberops/secrets-handler)
+
 ## Installation
 `npm install secrets-handler`
 
