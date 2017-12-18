@@ -41,6 +41,12 @@ Default: `false`
 
 Flag indicating that existing parameters should be overwritten.
 
+#### keyId
+Type: `string`
+Default: Your AWS account's default key.
+
+Specify a KMS key to use when encrypting parameters.
+
 
 #### awsConfig
 Type: `object`  
@@ -73,14 +79,14 @@ Specify a path to be used as a prefix for fetched parameters.
 #### awsConfig
 Type: `object`  
 
-An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html).  It might, for example, include your aws credentials or region.  
+An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html).  It might, for example, include your AWS credentials or region.  
 
 
 
 ## putSecrets.sh
 Ingest a local JSON file and store it as individual parameters in AWS SSM.
 ```
-putSecrets.sh [--path | -p <value>] [--overwrite | -o] [--quiet | -q] <filename>
+putSecrets.sh [--path | -p <value>] [--overwrite | -o] [--quiet | -q] [--key-id | -k <value>] <filename>
 ```
 
 ### Options
@@ -92,6 +98,9 @@ Flag indicating that existing parameters should be overwritten.
 
 `--quiet` or `-q`  
 Quiet down and log fewer things.
+
+`--key-id` or `-k`
+Specify a KMS key to use when encrypting parameters. Defaults to your AWS account's default key.
 
 `<filename>`  
 Specifies a JSON file from which to read the secrets.  Defaults to `secrets.json`.

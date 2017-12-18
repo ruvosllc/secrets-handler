@@ -7,6 +7,7 @@ while [ "$#" -gt 0 ]; do
     -p|--path) path="$2"; shift 2;;
     -o|--overwrite) overwrite="--overwrite"; shift 1;;
     -q|--quiet) quiet=true; shift 1;;
+    -k|--key-id) key="--key-id $2"; shift 2;;
     -*) echo "Unknown option: $1" >&2; exit 1;;
     *) secrets_filename="$1"; shift 1;;
   esac
@@ -18,8 +19,6 @@ if [[ -z $path ]]; then
 fi
 path=$(echo /$path/ | tr -s '/' )
 secrets_filename=${secrets_filename:-'secrets.json'}
-overwrite=${overwrite:-''}
-quiet=${quiet:-''}
 
 paths_to_leaves=( $(jq -r 'paths(scalars) | map(strings, numbers|tostring) | join(".")' $secrets_filename) )
 leaves=( $(jq -r 'getpath(paths(scalars))' $secrets_filename) )
@@ -27,6 +26,6 @@ leaves=( $(jq -r 'getpath(paths(scalars))' $secrets_filename) )
 for i in ${!paths_to_leaves[@]}; do
   name=$path${paths_to_leaves[$i]}
   value=${leaves[$i]}
-  aws ssm put-parameter --name $name --type "SecureString" --value $value $overwrite
+  aws ssm put-parameter --name $name --type "SecureString" --value $value $overwrite $key
   if [[ -z $quiet ]]; then echo "Put value \"$value\" at parameter \"$name\""; fi
 done
