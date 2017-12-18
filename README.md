@@ -44,8 +44,8 @@ Default: `false`
 Flag indicating that existing parameters should be overwritten.
 
 #### keyId
-Type: `string`
-Default: Your AWS account's default key.
+Type: `string`  
+Default: Your AWS account's default key.  
 
 Specify a KMS key to use when encrypting parameters.
 
@@ -101,7 +101,7 @@ Flag indicating that existing parameters should be overwritten.
 `--quiet` or `-q`  
 Quiet down and log fewer things.
 
-`--key-id` or `-k`
+`--key-id` or `-k`  
 Specify a KMS key to use when encrypting parameters. Defaults to your AWS account's default key.
 
 `<filename>`  
