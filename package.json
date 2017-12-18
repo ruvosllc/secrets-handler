@@ -1,6 +1,6 @@
 {
   "name": "secrets-handler",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Store and retrieve JSON secrets securely via AWS SSM.",
   "main": "index.js",
   "scripts": {
