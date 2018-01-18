@@ -6,7 +6,7 @@ const packageInfo = require('../package.json')
 
 commander
 .version(packageInfo.version)
-.option('-p, --path <path>', 'Specify a path to be used as a prefix for fetched parameters. If none is provided a UUID will be used to prevent parameter name collision.')
+.option('-p, --path <path>', 'Specify a path to be used as a prefix on the parameter names. If none is provided a UUID will be used to prevent parameter name collision.')
 .option('-o, --overwrite', 'Flag indicating that existing parameters should be overwritten.')
 .option('-k, --key-id <keyId>', 'Specify a KMS key to use when encrypting parameters. Defaults to your AWS account\'s default key.')
 .parse(process.argv)

@@ -77,7 +77,7 @@ getSecrets({
 #### path
 Type: `string`  
 
-Specify a path to be used as a prefix for fetched parameters.
+Specify the path prefix of the parameters to fetch.
 
 
 #### awsConfig
@@ -119,7 +119,7 @@ getSecrets [--path | -p <value>]
 
 ### Options
 `--path` or `-p`  
-Specify a path to be used as a prefix for fetched parameters. Defaults to `/`.
+Specify the path prefix of the parameters to fetch. Defaults to `/`.
 
 ### Example
 ```
