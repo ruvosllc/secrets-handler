@@ -13,8 +13,8 @@
     "url": "git@github.com:uberops/secrets-handler.git"
   },
   "bin": {
-    "putsecrets": "./bin/putSecrets.sh",
-    "getsecrets": "./bin/getSecrets.sh"
+    "putsecrets": "./bin/putSecrets.js",
+    "getsecrets": "./bin/getSecrets.js"
   },
   "author": "paul.anderson@uberops.com",
   "devDependencies": {
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.169.0",
+    "commander": "^2.13.0",
     "traverse": "^0.6.6",
     "uuid": "^3.1.0"
   }
