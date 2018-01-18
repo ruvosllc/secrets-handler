@@ -8,8 +8,10 @@
 `npm install secrets-handler`
 
 
-## putSecrets.js
+
+## lib/putSecrets
 Ingest a `secrets` object and store it as individual parameters in AWS SSM. Returns a promise that resolves to the stored parameters.
+
 ```js
 const putSecrets = require('secrets-handler').putSecrets
 
@@ -57,7 +59,7 @@ An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest
 
 
 
-## getSecrets.js
+## lib/getSecrets
 Fetch parameters from AWS SSM and reconstruct them as a secrets object.
 ```js
 const getSecrets = require('secrets-handler').getSecrets
@@ -85,10 +87,10 @@ An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest
 
 
 
-## putSecrets.sh
-Ingest a local JSON file and store it as individual parameters in AWS SSM.
+## bin/putSecrets
+Read a secrets object from standard input and store it as individual parameters in AWS SSM.
 ```
-putSecrets.sh [--path | -p <value>] [--overwrite | -o] [--quiet | -q] [--key-id | -k <value>] <filename>
+putsecrets [--path | -p <value>] [--overwrite | -o] [--key-id | -k <value>]
 ```
 
 ### Options
@@ -98,25 +100,21 @@ Specify a path to be used as a prefix on the parameter names. If none is provide
 `--overwrite` or `-o`  
 Flag indicating that existing parameters should be overwritten.
 
-`--quiet` or `-q`  
-Quiet down and log fewer things.
-
 `--key-id` or `-k`  
 Specify a KMS key to use when encrypting parameters. Defaults to your AWS account's default key.
-
-`<filename>`  
-Specifies a JSON file from which to read the secrets.  Defaults to `secrets.json`.
 
 
 ### Example
 ```
-putSecrets.sh --path /awesome/project secrets.json
+putSecrets --path /awesome/project secrets.json
 ```
 
-## getSecrets.sh
+
+
+## bin/getSecrets
 Fetch a collection of secrets from AWS SSM by path and write them to standard output as a single JSON object.
 ```
-getSecrets.sh [--path | -p <value>]
+getSecrets [--path | -p <value>]
 ```
 
 ### Options
@@ -125,5 +123,5 @@ Specify a path to be used as a prefix for fetched parameters. Defaults to `/`.
 
 ### Example
 ```
-getSecrets.sh --path /awesome/project
+getSecrets --path /awesome/project
 ```
