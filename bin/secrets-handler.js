@@ -8,6 +8,7 @@ const deleteSecrets = require('./deleteSecrets')
 
 commander
 .version(packageInfo.version)
+.usage('[command] [options]')
 
 commander
 .command('get <path>')
