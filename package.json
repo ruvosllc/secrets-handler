@@ -13,9 +13,7 @@
     "url": "git@github.com:uberops/secrets-handler.git"
   },
   "bin": {
-    "putsecrets": "./bin/putSecrets.js",
-    "getsecrets": "./bin/getSecrets.js",
-    "deletesecrets": "./bin/deleteSecrets.js"
+    "secrets-handler": "./bin/secrets-handler.js"
   },
   "author": "paul.anderson@uberops.com",
   "devDependencies": {

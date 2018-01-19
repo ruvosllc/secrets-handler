@@ -9,7 +9,30 @@
 
 
 
-## lib/putSecrets
+## CLI Usage
+```
+> secrets-handler --help
+
+Usage: secrets-handler [command] [options]
+
+
+Options:
+
+  -V, --version  output the version number
+  -h, --help     output usage information
+
+
+Commands:
+
+  get <path>            Fetch a collection of secrets from AWS SSM by path and write them to standard output as a single JSON object.
+  put [options] <path>  Read a secrets object from standard input and store it as individual parameters in AWS SSM.
+  delete <path>         Delete a collection of secrets from AWS SSM by path and write the response to standard output.
+
+```
+
+
+
+## putSecrets
 Ingest a `secrets` object and store it as individual parameters in AWS SSM. Returns a promise that resolves to the stored parameters.
 
 ```js
@@ -59,7 +82,7 @@ An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest
 
 
 
-## lib/getSecrets
+## getSecrets
 Fetch parameters from AWS SSM and reconstruct them as a secrets object.
 ```js
 const getSecrets = require('secrets-handler').getSecrets
@@ -87,7 +110,7 @@ An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest
 
 
 
-## lib/deleteSecrets
+## deleteSecrets
 Delete all parameters in AWS SSM at a path.
 ```js
 const deleteSecrets = require('secrets-handler').deleteSecrets
@@ -112,61 +135,3 @@ Specify the path prefix of the parameters to delete.
 Type: `object`  
 
 An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html).  It might, for example, include your AWS credentials or region.  
-
-
-
-## bin/putSecrets
-Read a secrets object from standard input and store it as individual parameters in AWS SSM.
-```
-putsecrets [--path | -p <value>] [--overwrite | -o] [--key-id | -k <value>]
-```
-
-### Options
-`--path` or `-p`  
-Specify a path to be used as a prefix on the parameter names. If none is provided a UUID will be used to prevent parameter name collision.
-
-`--overwrite` or `-o`  
-Flag indicating that existing parameters should be overwritten.
-
-`--key-id` or `-k`  
-Specify a KMS key to use when encrypting parameters. Defaults to your AWS account's default key.
-
-
-### Example
-```
-putSecrets --path /awesome/project secrets.json
-```
-
-
-
-## bin/getSecrets
-Fetch a collection of secrets from AWS SSM by path and write them to standard output as a single JSON object.
-```
-getsecrets [--path | -p <value>]
-```
-
-### Options
-`--path` or `-p`  
-Specify the path prefix of the parameters to fetch. Defaults to `/`.
-
-### Example
-```
-getSecrets --path /awesome/project
-```
-
-
-
-## bin/deleteSecrets
-Delete a collection of secrets from AWS SSM by path and write the response to standard output.
-```
-deletesecrets [--path | -p <value>]
-```
-
-### Options
-`--path` or `-p`  
-Specify the path prefix of the parameters to delete. Defaults to `/`.
-
-### Example
-```
-deletesecrets --path /awesome/project
-```
