@@ -6,7 +6,7 @@ const packageInfo = require('../package.json')
 
 commander
 .version(packageInfo.version)
-.option('-p, --path <path>', 'Specify a path to be used as a prefix for fetched parameters.')
+.option('-p, --path <path>', 'Specify the path prefix of the parameters to fetch.')
 .parse(process.argv)
 
 getSecrets({ path: commander.path || '/' })
