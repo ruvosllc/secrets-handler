@@ -87,6 +87,34 @@ An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest
 
 
 
+## lib/deleteSecrets
+Delete all parameters in AWS SSM at a path.
+```js
+const deleteSecrets = require('secrets-handler').deleteSecrets
+
+deleteSecrets({
+  path: '/awesome/project',
+  awsConfig: { region: 'us-east-1' }
+})
+.then(awsResponse => {})
+```
+
+### Options
+
+
+#### path
+Type: `string`  
+
+Specify the path prefix of the parameters to delete.
+
+
+#### awsConfig
+Type: `object`  
+
+An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html).  It might, for example, include your AWS credentials or region.  
+
+
+
 ## bin/putSecrets
 Read a secrets object from standard input and store it as individual parameters in AWS SSM.
 ```
@@ -114,7 +142,7 @@ putSecrets --path /awesome/project secrets.json
 ## bin/getSecrets
 Fetch a collection of secrets from AWS SSM by path and write them to standard output as a single JSON object.
 ```
-getSecrets [--path | -p <value>]
+getsecrets [--path | -p <value>]
 ```
 
 ### Options
@@ -124,4 +152,21 @@ Specify the path prefix of the parameters to fetch. Defaults to `/`.
 ### Example
 ```
 getSecrets --path /awesome/project
+```
+
+
+
+## bin/deleteSecrets
+Delete a collection of secrets from AWS SSM by path and write the response to standard output.
+```
+deletesecrets [--path | -p <value>]
+```
+
+### Options
+`--path` or `-p`  
+Specify the path prefix of the parameters to delete. Defaults to `/`.
+
+### Example
+```
+deletesecrets --path /awesome/project
 ```
