@@ -14,7 +14,8 @@
   },
   "bin": {
     "putsecrets": "./bin/putSecrets.js",
-    "getsecrets": "./bin/getSecrets.js"
+    "getsecrets": "./bin/getSecrets.js",
+    "deletesecrets": "./bin/deleteSecrets.js"
   },
   "author": "paul.anderson@uberops.com",
   "devDependencies": {
@@ -25,6 +26,7 @@
   "dependencies": {
     "aws-sdk": "^2.169.0",
     "commander": "^2.13.0",
+    "lodash.mergewith": "^4.6.0",
     "traverse": "^0.6.6",
     "uuid": "^3.1.0"
   }
