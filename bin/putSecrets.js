@@ -2,7 +2,7 @@
 
 const putSecrets = require('../lib/putSecrets')
 
-const action = (path, { merge, keyId }) => {
+const action = (path, { merge, overwrite, keyId }) => {
   let secretsString = ''
   process.stdin.setEncoding('utf8')
   process.stdin.on('readable', () => {
@@ -11,7 +11,7 @@ const action = (path, { merge, keyId }) => {
 
   process.stdin.on('end', () => {
     const secrets = JSON.parse(secretsString)
-    putSecrets({ path, merge, keyId, secrets })
+    putSecrets({ path, merge, overwrite, keyId, secrets })
     .then(result => {
       process.stdout.write(JSON.stringify(result, null, 2))
       process.exit()

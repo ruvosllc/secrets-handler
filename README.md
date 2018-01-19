@@ -68,6 +68,14 @@ Default: `false`
 
 Merge new secrets over old. Existing parameters are overwritten only if present in the new set of secrets.
 
+
+#### overwrite
+Type: `boolean`  
+Default: `false`  
+
+Completely replace the old secrets object with the new one.
+
+
 #### keyId
 Type: `string`  
 Default: Your AWS account's default key.  
