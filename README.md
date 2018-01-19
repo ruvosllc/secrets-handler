@@ -41,7 +41,7 @@ const putSecrets = require('secrets-handler').putSecrets
 putSecrets({
   secrets: { some: 'secrets' },
   path: '/awesome/project',
-  overwrite: true,
+  merge: true,
   awsConfig: { region: 'us-east-1' }
 })
 .then(parameters => {})
@@ -62,11 +62,11 @@ Default: `uuid()`
 Specify a path to be used as a prefix on the parameter names. If none is provided a UUID will be used to prevent parameter name collision.
 
 
-#### overwrite
+#### merge
 Type: `boolean`  
 Default: `false`  
 
-Flag indicating that existing parameters should be overwritten.
+Merge new secrets over old. Existing parameters are overwritten only if present in the new set of secrets.
 
 #### keyId
 Type: `string`  

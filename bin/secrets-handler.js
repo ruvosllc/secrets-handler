@@ -18,7 +18,7 @@ commander
 commander
 .command('put <path>')
 .description('Read a secrets object from standard input and store it as individual parameters in AWS SSM.')
-.option('-o, --overwrite', 'Flag indicating that existing parameters should be overwritten.')
+.option('-m, --merge', 'Merge new secrets over old. Existing parameters are overwritten only if present in the new set of secrets.')
 .option('-k, --key-id <keyId>', 'Specify a KMS key to use when encrypting parameters. Defaults to your AWS account\'s default key.')
 .action(putSecrets)
 
