@@ -2,6 +2,22 @@
   "name": "secrets-handler",
   "version": "0.4.0",
   "description": "Store and retrieve JSON secrets securely via AWS SSM.",
+  "keywords": [
+    "🐼",
+    "secret",
+    "secrets",
+    "environment",
+    "variable",
+    "variables",
+    "aws",
+    "ssm",
+    "parameter",
+    "parameters",
+    "json",
+    "store",
+    "cloud",
+    "cli"
+  ],
   "main": "index.js",
   "scripts": {
     "audit": "nsp check",
