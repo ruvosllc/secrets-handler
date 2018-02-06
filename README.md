@@ -5,7 +5,9 @@
 [![Build Status](https://travis-ci.org/uberops/secrets-handler.svg?branch=master)](https://travis-ci.org/uberops/secrets-handler)
 
 ## Installation
-`npm install secrets-handler`
+```
+npm install -g secrets-handler
+```
 
 
 
@@ -32,7 +34,9 @@ Commands:
 
 
 
-## putSecrets
+## Programmatic Usage
+
+### putSecrets
 Ingest a `secrets` object and store it as individual parameters in AWS SSM. Returns a promise that resolves to the stored parameters.
 
 ```js
@@ -47,50 +51,50 @@ putSecrets({
 .then(parameters => {})
 ```
 
-### Options
+#### Options
 
-#### secrets
+##### secrets
 Type: `object`  
 
 An object containing the secrets you'd like to store.  
 
 
-#### path
+##### path
 Type: `string`  
 Default: `uuid()`  
 
 Specify a path to be used as a prefix on the parameter names. If none is provided a UUID will be used to prevent parameter name collision.
 
 
-#### merge
+##### merge
 Type: `boolean`  
 Default: `false`  
 
 Merge new secrets over old. Existing parameters are overwritten only if present in the new set of secrets.
 
 
-#### overwrite
+##### overwrite
 Type: `boolean`  
 Default: `false`  
 
 Completely replace the old secrets object with the new one.
 
 
-#### keyId
+##### keyId
 Type: `string`  
 Default: Your AWS account's default key.  
 
 Specify a KMS key to use when encrypting parameters.
 
 
-#### awsConfig
+##### awsConfig
 Type: `object`  
 
 An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html).  It might, for example, include your aws credentials or region.  
 
 
 
-## getSecrets
+### getSecrets
 Fetch parameters from AWS SSM and reconstruct them as a secrets object.
 ```js
 const getSecrets = require('secrets-handler').getSecrets
@@ -102,23 +106,23 @@ getSecrets({
 .then(secrets => {})
 ```
 
-### Options
+#### Options
 
 
-#### path
+##### path
 Type: `string`  
 
 Specify the path prefix of the parameters to fetch.
 
 
-#### awsConfig
+##### awsConfig
 Type: `object`  
 
 An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html).  It might, for example, include your AWS credentials or region.  
 
 
 
-## deleteSecrets
+### deleteSecrets
 Delete all parameters in AWS SSM at a path.
 ```js
 const deleteSecrets = require('secrets-handler').deleteSecrets
@@ -130,16 +134,16 @@ deleteSecrets({
 .then(awsResponse => {})
 ```
 
-### Options
+#### Options
 
 
-#### path
+##### path
 Type: `string`  
 
 Specify the path prefix of the parameters to delete.
 
 
-#### awsConfig
+##### awsConfig
 Type: `object`  
 
 An [AWS configuration object](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html).  It might, for example, include your AWS credentials or region.  
